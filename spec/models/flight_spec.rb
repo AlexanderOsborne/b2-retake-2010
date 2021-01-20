@@ -1,5 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Flight, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    it { should validate_presence_of :number}
+    it { should validate_presence_of :date}
+    it { should validate_presence_of :departure_city}
+    it { should validate_presence_of :arrival_city}
+    it { should validate_presence_of :airline_id}
+  end
+
+  describe 'relationships' do
+    it {should belong_to :airline}
+    it {should have_many :flight_passengers}
+    it {should have_many(:passengers).through(:flight_passengers)}
+  end
+
+  describe 'instance methods' do
+  end
 end
