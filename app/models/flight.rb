@@ -5,6 +5,6 @@ class Flight < ApplicationRecord
                         :arrival_city,
                         :airline_id
   belongs_to :airline
-  has_many :flight_passengers
+  has_many :flight_passengers,dependent: :destroy
   has_many :passengers, through: :flight_passengers
 end

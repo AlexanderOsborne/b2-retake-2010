@@ -1,6 +1,6 @@
 class Airline < ApplicationRecord
   validates_presence_of :name
-  has_many :flights
+  has_many :flights, dependent: :destroy
 
   def find_passengers
     Flight.joins(:passengers)

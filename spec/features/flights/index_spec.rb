@@ -26,5 +26,14 @@ RSpec.describe 'as a visitor', type: :feature do
       expect(page).to have_content(@passenger3.name) 
       expect(page).to have_content(@passenger4.name) 
     end
+
+    it 'Allows me to remove a passenger from a flight' do
+      visit flights_path
+      
+      first(:link, "Remove Passenger").click
+        
+      expect(current_path).to eq(flights_path)
+      expect(page).to have_no_content(@passenger1.name)
+    end
   end
 end
