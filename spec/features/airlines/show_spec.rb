@@ -18,6 +18,9 @@ RSpec.describe 'as a visitor', type: :feature do
     end
 
     it 'I see a unique list of passengers that have flights from that airline' do
+      visit airline_path(@airline.id)
+
+      expect(@airline.find_passengers).to eq([@passenger3.name, @passenger2.name, @passenger1.name, @passenger4.name])
     end
   end
 end

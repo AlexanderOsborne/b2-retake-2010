@@ -1,0 +1,4 @@
+<p> Welcome to <%=  @airline.name%> Airlines<p>
+<% @airline.find_passengers.each do |passenger| %>
+Current Passengers:<%=  passenger%><br>
+<% end %>
